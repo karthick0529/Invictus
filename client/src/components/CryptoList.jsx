@@ -1,30 +1,38 @@
 import React from "react";
 import CryptoCard from "./CryptoCard";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 
 /**
  * CryptoList Component
  *
- * Displays a responsive grid layout of `CryptoCard` components using MUI's Grid system.
- * Each card represents a cryptocurrency and adapts responsively across screen sizes:
- * - Full width on extra-small screens
- * - Half width on small screens
- * - One-third width on medium screens
- * - One-fourth width on large screens
+ * Displays a consistent and responsive grid of `CryptoCard` components.
+ * Cards are centered, have a max width, and maintain equal size across screen sizes.
  *
  * Props:
  * @param {Object[]} coins - Array of cryptocurrency objects.
  * Each object should include: id, name, symbol, image, current_price, market_cap, price_change_percentage_24h.
- *
- * Example:
- * <CryptoList coins={coinDataArray} />
  */
 
 const CryptoList = ({ coins }) => (
-  <Grid container spacing={3} columns={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
+  <Grid
+    container
+    spacing={3}
+    justifyContent="center"
+  >
     {coins.map((coin) => (
-      <Grid key={coin.id} colSpan={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-        <CryptoCard coin={coin} />
+      <Grid
+        item
+        key={coin.id}
+        xs={12}
+        sm={6}
+        md={4}
+        lg={3}
+        display="flex"
+        justifyContent="center"
+      >
+        <Box maxWidth={300} width="100%">
+          <CryptoCard coin={coin} />
+        </Box>
       </Grid>
     ))}
   </Grid>
