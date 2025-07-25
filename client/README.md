@@ -1,12 +1,29 @@
-# React + Vite
+🪙 Crypto Price Tracker
+A responsive and dynamic web application built with React.js and Material UI that allows users to track real-time cryptocurrency prices using data from the CoinGecko API. This app provides a clean and intuitive user interface to monitor top cryptocurrencies, search for coins, and view their price trends.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔧 Features
+📈 Live Crypto Market Data
+Fetches real-time prices, market caps, and volume for the top cryptocurrencies using the CoinGecko API.
 
-Currently, two official plugins are available:
+🔍 Search Functionality
+Built-in autocomplete-enabled search bar to easily find and filter coins by name or symbol.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📊 Chart Integration (optional)
+Optionally displays historical price trends using chart data from the API.
 
-## Expanding the ESLint configuration
+⚡ Auto Refreshing
+Automatically refreshes data every 30 seconds to ensure prices are up to date.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🎨 Material UI Design
+Uses MUI components for a modern, clean, and mobile-responsive user interface.
+
+🛠️ Tech Stack
+Frontend: React.js, JSX
+
+Styling: Material UI (MUI)
+
+API Integration: Axios, CoinGecko API
+
+State Management: React Hooks (useState, useEffect)
+
+Custom Hooks: useFetchCrypto to manage API calls and loading/error states
