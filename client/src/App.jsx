@@ -7,32 +7,15 @@ import Error from './components/Error';
 import useFetchCrypto from './hooks/useFetchCrypto';
 import PriceChart from './components/PriceChart';
 import './styles.css';
-import {
-  Box,
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-} from '@mui/material';
+import { Box, Button } from '@mui/material';
 
 const App = () => {
   const { data, loading, error, refetch } = useFetchCrypto();
   const [query, setQuery] = useState('');
-  const [selectedCoin, setSelectedCoin] = useState('bitcoin');
 
-  const popularCoins = [
-    { id: 'bitcoin', name: 'Bitcoin' },
-    { id: 'ethereum', name: 'Ethereum' },
-    { id: 'dogecoin', name: 'Dogecoin' },
-    { id: 'solana', name: 'Solana' },
-    { id: 'ripple', name: 'Ripple' },
-  ];
-
-  const filtered = data.filter(
-    (coin) =>
-      coin.name.toLowerCase().includes(query.toLowerCase()) ||
-      coin.symbol.toLowerCase().includes(query.toLowerCase())
+  const filtered = data.filter((coin) =>
+    coin.name.toLowerCase().includes(query.toLowerCase()) ||
+    coin.symbol.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
@@ -57,28 +40,12 @@ const App = () => {
 
         {loading && <Loader />}
         {error && <Error message={error} />}
+
         {!loading && !error && <CryptoList coins={filtered} />}
 
-        {/* Dropdown and Chart */}
-        {!loading && !error && (
-          <Box mt={5}>
-            <Box mb={2} maxWidth={300}>
-              <FormControl fullWidth size="small">
-                <InputLabel>Select Coin</InputLabel>
-                <Select
-                  value={selectedCoin}
-                  label="Select Coin"
-                  onChange={(e) => setSelectedCoin(e.target.value)}
-                >
-                  {popularCoins.map((coin) => (
-                    <MenuItem key={coin.id} value={coin.id}>
-                      {coin.name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
-            <PriceChart coinId={selectedCoin} />
+        {!loading && !error && filtered.length > 0 && (
+          <Box mt={4}>
+            <PriceChart coinId={filtered[0].id} />
           </Box>
         )}
       </Box>

@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { Line } from 'react-chartjs-2';
+import React, { useEffect, useState, useMemo } from "react";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,8 +9,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { fetchChartData } from '../services/api';
+} from "chart.js";
+import { fetchChartData } from "../services/api";
 import {
   Box,
   FormControl,
@@ -18,7 +18,26 @@ import {
   MenuItem,
   Select,
   Typography,
-} from '@mui/material';
+} from "@mui/material";
+
+/**
+ * PriceChart Component
+ *
+ * Displays a line chart representing the historical price trend of a selected cryptocurrency.
+ * Users can choose different timeframes (1 day, 7 days, 30 days) to visualize the price changes.
+ * The chart is built using Chart.js and renders with the help of react-chartjs-2.
+ *
+ * Props:
+ * - coinId (string): The ID of the cryptocurrency to fetch and display chart data for.
+ *
+ * Features:
+ * - Dynamically fetches chart data based on selected coin and timeframe.
+ * - Interactive timeframe selection with a dropdown.
+ * - Responsive and styled chart layout using Material UI.
+ *
+ * Dependencies:
+ * - chart.js, react-chartjs-2, @mui/material
+ */
 
 ChartJS.register(
   CategoryScale,
@@ -55,8 +74,8 @@ const PriceChart = ({ coinId }) => {
         {
           label: `${coinId?.toUpperCase()} Price (USD)`,
           data: chartData.map(([, price]) => price),
-          borderColor: '#00C49F', // New color
-          backgroundColor: 'rgba(0, 196, 159, 0.1)',
+          borderColor: "#00C49F", // New color
+          backgroundColor: "rgba(0, 196, 159, 0.1)",
           borderWidth: 2,
           pointRadius: 2,
           tension: 0.4,
@@ -70,12 +89,12 @@ const PriceChart = ({ coinId }) => {
     <Box
       sx={{
         maxWidth: 800,
-        mx: 'auto',
+        mx: "auto",
         px: 2,
         py: 3,
         boxShadow: 3,
         borderRadius: 2,
-        backgroundColor: '#fafafa',
+        backgroundColor: "#fafafa",
       }}
     >
       <Typography variant="h6" textAlign="center" mb={2}>
@@ -103,21 +122,21 @@ const PriceChart = ({ coinId }) => {
           responsive: true,
           plugins: {
             legend: {
-              position: 'top',
+              position: "top",
               labels: {
-                color: '#333',
+                color: "#333",
               },
             },
           },
           scales: {
             x: {
               ticks: {
-                color: '#444',
+                color: "#444",
               },
             },
             y: {
               ticks: {
-                color: '#444',
+                color: "#444",
               },
             },
           },
