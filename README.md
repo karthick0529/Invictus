@@ -36,6 +36,7 @@ A responsive and dynamic web application built with **React.js** and **Material 
 ## 🚀 Deployment
 
 🔗 **Live Demo:**  [https://invictus-crypto-price-tracking-task.netlify.app/]
+
 🔗 **GitHub Link:** [https://github.com/karthick0529/Invictus]
 
 ---
