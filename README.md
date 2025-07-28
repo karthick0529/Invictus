@@ -35,8 +35,8 @@ A responsive and dynamic web application built with **React.js** and **Material 
 
 ## 🚀 Deployment
 
-🔗 **Live Demo:**  
-🔗 **GitHub Link:** 
+🔗 **Live Demo:**  [https://invictus-crypto-price-tracking-task.netlify.app/]
+🔗 **GitHub Link:** [https://github.com/karthick0529/Invictus]
 
 ---
 
@@ -46,6 +46,7 @@ This app uses the **free public CoinGecko API** directly from the frontend. As a
 
 - ❌ **CORS errors**
 - ⏳ **HTTP 429 Too Many Requests error**
+- 📉 **Failed to Fetch data**
 
 These occur because:
 - The CoinGecko free tier imposes **rate limits** when calling the API directly from the browser.
